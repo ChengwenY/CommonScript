@@ -9,10 +9,10 @@ git commit -m ${commitText}
 
 ################spec信息 start################
 RootPath=`pwd`
-PodSpecName="HaloSlim.podspec"
+PodSpecName="HaloDebug.podspec"
 
 PodSpecPath=$RootPath/$PodSpecName
-RepoName="HaloSlim"
+RepoName="HaloDebug"
 
 ##### git 校验tag #####
 
@@ -85,7 +85,8 @@ fi
 git add .
 git pull
 git add .
-git commit -m "new Version $PodSpecName in $Date"
+date=$(date '+%Y-%m-%d %H:%M:%S')
+git commit -m "new Version $PodSpecName in $date"
 git push 
 git tag $Tag_Version
 git push --tags 
@@ -98,7 +99,7 @@ do
 	elif [ "$input" == "2" ]; then
 		podPushRepo 
 	else 
-		exit 1
+		break
 	fi
 done 
 
